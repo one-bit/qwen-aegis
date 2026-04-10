@@ -6,6 +6,12 @@
   <strong>12 engineering personas · 14 audit domains · 10 slash commands · adversarial review</strong>
 </p>
 
+### Install
+
+```bash
+qwen extensions install https://github.com/YOUR_USERNAME/qwen-aegis
+```
+
 ---
 
 ## What Is AEGIS?
@@ -27,41 +33,10 @@ All framework specifications, agent personas, workflow definitions, domain knowl
 
 ## Quick Start
 
-### Installation
-
-#### Option 1: Install from Git (recommended)
-
-```bash
-qwen extensions install https://github.com/YOUR_USERNAME/qwen-aegis
 ```
-
-#### Option 2: Manual installation
-
-```bash
-# Clone the repository
-git clone https://github.com/YOUR_USERNAME/qwen-aegis.git
-
-# Symlink or copy into Qwen Code's extensions directory
-ln -s $(pwd)/qwen-aegis ~/.qwen/extensions/aegis
-```
-
-#### Option 3: From a local path
-
-```bash
-qwen extensions install /path/to/qwen-aegis
-```
-
-### Verify installation
-
-```
-/aegis:validate     # Verify tool installation and framework integrity
-```
-
-### Start an audit
-
-```
-/aegis:init       # Initialize AEGIS in your project (creates .aegis/ directory)
+/aegis:init       # Initialize AEGIS in your project
 /aegis:audit      # Start the diagnostic audit
+/aegis:validate   # Verify framework integrity
 ```
 
 ## Slash Commands
