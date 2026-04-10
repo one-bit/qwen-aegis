@@ -1,0 +1,9 @@
+{
+  "name": "aegis",
+  "version": "1.0.0",
+  "description": "Automated Epistemic Governance & Intelligence System — multi-agent, multi-phase codebase auditing with severity-ranked findings, adversarial review, and remediation planning",
+  "contextFileName": "QWEN.md",
+  "commands": "commands",
+  "skills": "skills",
+  "agents": "agents"
+}
