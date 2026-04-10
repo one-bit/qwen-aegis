@@ -1,8 +1,5 @@
 ---
-name: aegis:report
 description: Generate or view the AEGIS diagnostic audit report
-argument-hint: "[section]"
-tools: [read_file, write_file, glob, grep_search]
 ---
 
 <objective>
@@ -18,9 +15,9 @@ Produces: report files in .aegis/report/ (executive-summary.md, findings-by-doma
 </execution_context>
 
 <context>
-${arguments}
-@.aegis/STATE.md
-@.aegis/report/
+{{args}}
+@{.aegis/STATE.md}
+@{.aegis/report/}
 </context>
 
 <process>
@@ -116,7 +113,7 @@ Check if .aegis/report/ directory exists and contains report files:
 
 ## Step 4: Generate Report
 
-If ${arguments} contains a section name (e.g., "executive-summary"), generate only that section. Otherwise generate all sections.
+If {{args}} contains a section name (e.g., "executive-summary"), generate only that section. Otherwise generate all sections.
 
 ```
 ════════════════════════════════════════

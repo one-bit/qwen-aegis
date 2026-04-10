@@ -1,8 +1,5 @@
 ---
-name: aegis:guardrails
 description: Generate project rules from audit findings for AI coding assistants
-argument-hint: "[format]"
-tools: [read_file, write_file, glob, grep_search, ask_user_question]
 ---
 
 <objective>
@@ -19,10 +16,10 @@ Produces: rule files in .aegis/remediation/guardrails/ (claude-md-rules.md, curs
 </execution_context>
 
 <context>
-${arguments}
-@.aegis/STATE.md
-@.aegis/remediation/
-@.aegis/remediation/guardrails/
+{{args}}
+@{.aegis/STATE.md}
+@{.aegis/remediation/}
+@{.aegis/remediation/guardrails/}
 </context>
 
 <process>
@@ -64,7 +61,7 @@ ${arguments}
 
 ## Step 2: Select Guardrail Format
 
-Check ${arguments} for format specification:
+Check {{args}} for format specification:
 - If "claude" or "claude-md": pre-select Claude MD format
 - If "cursor" or "cursorrules": pre-select Cursor rules format
 - If "qwen" or "qwen-md": pre-select Qwen Code format

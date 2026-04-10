@@ -1,7 +1,5 @@
 ---
-name: aegis:transform
 description: Initiate the full AEGIS Transform pipeline on a completed audit
-tools: [read_file, write_file, edit, run_shell_command, glob, grep_search, agent, ask_user_question]
 ---
 
 <objective>
@@ -20,9 +18,9 @@ Produces: Layer B remediation knowledge (playbooks, patterns, guardrails) and La
 </execution_context>
 
 <context>
-@.aegis/STATE.md
-@.aegis/report/
-@.aegis/findings/
+@{.aegis/STATE.md}
+@{.aegis/report/}
+@{.aegis/findings/}
 </context>
 
 <process>

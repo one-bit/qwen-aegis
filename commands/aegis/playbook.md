@@ -1,8 +1,5 @@
 ---
-name: aegis:playbook
 description: Generate a remediation playbook for a specific finding
-argument-hint: "<finding-id>"
-tools: [read_file, write_file, glob, grep_search, ask_user_question]
 ---
 
 <objective>
@@ -19,10 +16,10 @@ Produces: .aegis/remediation/playbooks/{finding-id}.md and .aegis/remediation/pl
 </execution_context>
 
 <context>
-${arguments}
-@.aegis/STATE.md
-@.aegis/findings/
-@.aegis/remediation/playbooks/
+{{args}}
+@{.aegis/STATE.md}
+@{.aegis/findings/}
+@{.aegis/remediation/playbooks/}
 </context>
 
 <process>
@@ -48,7 +45,7 @@ Check if .aegis/report/ exists with completed Core audit:
 
 ## Step 2: Validate Finding ID
 
-Check ${arguments} for a finding ID:
+Check {{args}} for a finding ID:
 
 - If no finding ID provided:
   ```

@@ -1,7 +1,5 @@
 ---
-name: aegis:status
 description: Display current AEGIS audit state and progress
-tools: [read_file, glob, grep_search]
 ---
 
 <objective>
@@ -17,7 +15,7 @@ If no active audit exists, reports that and suggests /aegis.audit.
 </execution_context>
 
 <context>
-@.aegis/STATE.md
+@{.aegis/STATE.md}
 </context>
 
 <process>

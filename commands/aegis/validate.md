@@ -1,7 +1,5 @@
 ---
-name: aegis:validate
 description: Test AEGIS tool installation and framework integrity
-tools: [read_file, run_shell_command, glob, grep_search]
 ---
 
 <objective>
@@ -15,7 +13,7 @@ This is a read-only command — it never modifies files or installs anything. Sa
 </execution_context>
 
 <context>
-@.aegis/STATE.md
+@{.aegis/STATE.md}
 </context>
 
 <process>

@@ -1,8 +1,5 @@
 ---
-name: aegis:init
 description: Initialize AEGIS in a target project
-argument-hint: "[path-to-repo]"
-tools: [read_file, write_file, edit, run_shell_command, glob, grep_search, ask_user_question]
 ---
 
 <objective>
@@ -18,15 +15,15 @@ This command does NOT start an audit — it prepares the project. Run `/aegis.au
 </execution_context>
 
 <context>
-${arguments}
-@.aegis/STATE.md
+{{args}}
+@{.aegis/STATE.md}
 </context>
 
 <process>
 
 ## Step 1: Determine Target Repository
 
-Check if ${arguments} contains a repository path:
+Check if {{args}} contains a repository path:
 - If YES: use the provided path as the audit target
 - If NO: use the current working directory
 

@@ -1,8 +1,5 @@
 ---
-name: aegis:audit
 description: Run a full or targeted AEGIS diagnostic audit on a codebase
-argument-hint: "[path-to-repo]"
-tools: [read_file, write_file, edit, run_shell_command, glob, grep_search, agent, ask_user_question]
 ---
 
 <objective>
@@ -28,16 +25,16 @@ Produces: Phase 0 (Context & Threat Modeling) output, building on the `.aegis/` 
 </execution_context>
 
 <context>
-${arguments}
-@.aegis/STATE.md
-@.aegis/MANIFEST.md
+{{args}}
+@{.aegis/STATE.md}
+@{.aegis/MANIFEST.md}
 </context>
 
 <process>
 
 ## Step 1: Determine Target Repository
 
-Check if ${arguments} contains a repository path:
+Check if {{args}} contains a repository path:
 - If YES: use the provided path as the audit target
 - If NO: use the current working directory
 

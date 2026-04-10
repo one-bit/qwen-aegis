@@ -1,8 +1,5 @@
 ---
-name: aegis:resume
 description: Resume an interrupted AEGIS diagnostic audit
-argument-hint: "[phase-number]"
-tools: [read_file, write_file, edit, run_shell_command, glob, grep_search, agent, ask_user_question]
 ---
 
 <objective>
@@ -24,8 +21,8 @@ Produces: continued audit execution from the resume point, updated .aegis/STATE.
 </execution_context>
 
 <context>
-${arguments}
-@.aegis/STATE.md
+{{args}}
+@{.aegis/STATE.md}
 </context>
 
 <process>
@@ -125,7 +122,7 @@ Note: Compute relative time from Last session timestamp (e.g., if last session w
 
 ## Step 4: Present Resume Options
 
-Check if ${arguments} contains a phase number:
+Check if {{args}} contains a phase number:
 - If YES: validate the phase number (0-5), skip to delegation with that phase
 - If NO: present options
 

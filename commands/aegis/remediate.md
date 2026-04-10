@@ -1,8 +1,5 @@
 ---
-name: aegis:remediate
 description: Generate remediation plans for all findings or a specific domain
-argument-hint: "[domain-number]"
-tools: [read_file, write_file, edit, run_shell_command, glob, grep_search, agent, ask_user_question]
 ---
 
 <objective>
@@ -21,11 +18,11 @@ Produces: playbooks in .aegis/remediation/playbooks/, patterns in .aegis/remedia
 </execution_context>
 
 <context>
-${arguments}
-@.aegis/STATE.md
-@.aegis/report/
-@.aegis/findings/
-@.aegis/remediation/
+{{args}}
+@{.aegis/STATE.md}
+@{.aegis/report/}
+@{.aegis/findings/}
+@{.aegis/remediation/}
 </context>
 
 <process>
@@ -51,7 +48,7 @@ Check if .aegis/report/ exists with completed Core audit:
 
 ## Step 2: Determine Scope
 
-Check ${arguments}:
+Check {{args}}:
 - If domain number provided: scope to that domain's findings only
   - Validate domain number (0-13)
   - Count findings for that domain
