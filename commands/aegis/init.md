@@ -195,7 +195,32 @@ Check if `.gitignore` exists in the target repository:
 
 Report what was done.
 
-## Step 7: Display Summary
+## Step 7: Update .qwenignore
+
+Check if `.qwenignore` exists in the target repository:
+- If YES: check if it contains `.aegis/` rules
+  - If already present with proper negation patterns: do nothing
+  - If present but missing negation patterns: warn user and offer to update
+- If NO .qwenignore: create one with:
+  ```
+  # AEGIS audit directory rules
+  # Ignore everything in .aegis/ by default
+  .aegis/
+
+  # EXCEPT these critical state/finding files (needed for context)
+  !.aegis/STATE.md
+  !.aegis/MANIFEST.md
+  !.aegis/findings/
+  ```
+
+Explain to user:
+- `.gitignore` keeps `.aegis/` out of git (no repo bloat)
+- `.qwenignore` with negation patterns makes STATE.md, MANIFEST.md, and findings/ visible to Qwen's context
+- This is the recommended configuration for optimal AEGIS operation
+
+Report what was done.
+
+## Step 8: Display Summary
 
 ```
 ════════════════════════════════════════
@@ -208,6 +233,7 @@ Manifest:  .aegis/MANIFEST.md
 Tools:     {X}/8 detected
 
 .aegis/ added to .gitignore ✓
+.aegis/ context rules added to .qwenignore ✓
 
 ────────────────────────────────────────
 Next steps:
@@ -225,5 +251,6 @@ Next steps:
 - [ ] .aegis/ directory created with STATE.md, MANIFEST.md, findings/
 - [ ] Tool inventory detected and recorded in MANIFEST.md
 - [ ] .aegis/ added to .gitignore
+- [ ] .qwenignore created with context visibility rules (negation patterns for STATE.md, MANIFEST.md, findings/)
 - [ ] User informed of next steps
 </success_criteria>

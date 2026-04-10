@@ -1,0 +1,8 @@
+# AEGIS audit directory rules
+# Ignore everything in .aegis/ by default
+.aegis/
+
+# EXCEPT these critical state/finding files (needed for context)
+!.aegis/STATE.md
+!.aegis/MANIFEST.md
+!.aegis/findings/
