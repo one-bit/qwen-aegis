@@ -12,16 +12,15 @@ Produces: Phase 0 (Context & Threat Modeling) output, building on the `.aegis/` 
 </objective>
 
 <execution_context>
-@${extensionPath}/commands/init.md
-@${extensionPath}/src/core/workflows/phase-0-context.md
-@${extensionPath}/src/core/workflows/phase-1-reconnaissance.md
-@${extensionPath}/src/core/workflows/phase-2-domain-audits.md
-@${extensionPath}/src/core/workflows/phase-3-cross-domain.md
-@${extensionPath}/src/core/workflows/phase-4-adversarial-review.md
-@${extensionPath}/src/core/workflows/phase-5-report.md
-@${extensionPath}/src/core/workflows/session-handoff.md
-@${extensionPath}/src/core/workflows/disagreement-resolution.md
-@${extensionPath}/src/core/workflows/phase-checkpoint.md
+@{.aegis/src/core/workflows/phase-0-context.md}
+@{.aegis/src/core/workflows/phase-1-reconnaissance.md}
+@{.aegis/src/core/workflows/phase-2-domain-audits.md}
+@{.aegis/src/core/workflows/phase-3-cross-domain.md}
+@{.aegis/src/core/workflows/phase-4-adversarial-review.md}
+@{.aegis/src/core/workflows/phase-5-report.md}
+@{.aegis/src/core/workflows/session-handoff.md}
+@{.aegis/src/core/workflows/disagreement-resolution.md}
+@{.aegis/src/core/workflows/phase-checkpoint.md}
 </execution_context>
 
 <context>

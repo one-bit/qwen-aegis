@@ -11,7 +11,7 @@ Produces: report files in .aegis/report/ (executive-summary.md, findings-by-doma
 </objective>
 
 <execution_context>
-@${extensionPath}/src/core/workflows/phase-5-report.md
+@{.aegis/src/core/workflows/phase-5-report.md}
 </execution_context>
 
 <context>

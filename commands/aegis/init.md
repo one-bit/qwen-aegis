@@ -59,18 +59,42 @@ Check if `.aegis/STATE.md` exists in the target repository:
 
 - If NO `.aegis/`: proceed to Step 3
 
-## Step 3: Create .aegis/ Directory Structure
+## Step 3: Copy AEGIS Framework Files
+
+Copy the extension's `src/` directory into the workspace so workflow files are accessible via `@{}` injection (which is workspace-scoped).
+
+Use `run_shell_command` to copy:
+```bash
+cp -r ~/.qwen/extensions/aegis/src/ .aegis/src/
+```
+
+If the source is not found:
+- Warn the user: "AEGIS extension not detected at ~/.qwen/extensions/aegis/. Framework files must be installed globally before init. Run the extension installer."
+- Exit without proceeding.
+
+Verify the copy succeeded by checking `.aegis/src/core/` exists and contains files.
+
+## Step 4: Create .aegis/ Directory Structure
 
 Create the following structure:
 
 ```
 .aegis/
-├── STATE.md         # Audit state tracking
-├── MANIFEST.md      # Version-locked framework references
-└── findings/        # Output directory for phase findings
+├── STATE.md              # Audit state tracking
+├── MANIFEST.md           # Version-locked framework references
+├── findings/             # Output directory for phase findings
+└── src/                  # AEGIS framework files (workflows, schemas, domains, agents)
+    ├── core/
+    │   ├── workflows/
+    │   ├── agents/
+    │   └── personas/
+    ├── domains/
+    ├── schemas/
+    ├── rules/
+    └── tools/
 ```
 
-## Step 4: Initialize STATE.md
+## Step 5: Initialize STATE.md
 
 Create `.aegis/STATE.md` with:
 
@@ -119,7 +143,7 @@ Started: -
 (Populated as phases complete)
 ```
 
-## Step 5: Initialize MANIFEST.md
+## Step 6: Initialize MANIFEST.md
 
 Create `.aegis/MANIFEST.md` with:
 
@@ -128,9 +152,9 @@ Create `.aegis/MANIFEST.md` with:
 
 ## Framework
 
-Version: {read from ${extensionPath}/src/ if available, else "unknown"}
-Framework path: ${extensionPath}/src/
-Commands path: ${extensionPath}/commands/
+Version: {read from .aegis/src/ or else "unknown"}
+Framework path: .aegis/src/
+Commands path: ~/.qwen/extensions/aegis/commands/
 Initialized: {ISO 8601 timestamp}
 
 ## Installed Tools
@@ -197,6 +221,7 @@ Next steps:
 <success_criteria>
 - [ ] Target repository identified and validated
 - [ ] Existing .aegis/ handled (resume/fresh/cancel)
+- [ ] AEGIS framework files copied from global extension to .aegis/src/
 - [ ] .aegis/ directory created with STATE.md, MANIFEST.md, findings/
 - [ ] Tool inventory detected and recorded in MANIFEST.md
 - [ ] .aegis/ added to .gitignore

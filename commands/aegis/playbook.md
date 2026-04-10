@@ -11,8 +11,8 @@ Produces: .aegis/remediation/playbooks/{finding-id}.md and .aegis/remediation/pl
 </objective>
 
 <execution_context>
-@${extensionPath}/src/transform/workflows/phase-6-remediation.md
-@${extensionPath}/src/transform/workflows/transform-safety.md
+@{.aegis/src/transform/workflows/phase-6-remediation.md}
+@{.aegis/src/transform/workflows/transform-safety.md}
 </execution_context>
 
 <context>

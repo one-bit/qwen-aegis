@@ -11,10 +11,10 @@ Produces: playbooks in .aegis/remediation/playbooks/, patterns in .aegis/remedia
 </objective>
 
 <execution_context>
-@${extensionPath}/src/transform/workflows/phase-6-remediation.md
-@${extensionPath}/src/transform/workflows/phase-7-risk-validation.md
-@${extensionPath}/src/transform/workflows/phase-8-execution-planning.md
-@${extensionPath}/src/transform/workflows/transform-safety.md
+@{.aegis/src/transform/workflows/phase-6-remediation.md}
+@{.aegis/src/transform/workflows/phase-7-risk-validation.md}
+@{.aegis/src/transform/workflows/phase-8-execution-planning.md}
+@{.aegis/src/transform/workflows/transform-safety.md}
 </execution_context>
 
 <context>
