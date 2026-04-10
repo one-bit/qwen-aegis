@@ -184,43 +184,28 @@ To detect each tool:
 ## Step 6: Update .gitignore
 
 Check if `.gitignore` exists in the target repository:
-- If YES: check if it contains `.aegis/` (or `.aegis`)
-  - If already present: do nothing
-  - If not present: append `\n# AEGIS audit state (generated)\n.aegis/\n`
+- If YES: check if it contains `.aegis/` with negation patterns
+  - If already present with correct negations (`!.aegis/STATE.md`, `!.aegis/MANIFEST.md`, `!.aegis/findings/`, `!.aegis/src/`): do nothing
+  - If present but missing negations: update with proper negation patterns
+  - If present without negations: append negation patterns
 - If NO .gitignore: create one with:
   ```
-  # AEGIS audit state (generated)
+  # AEGIS audit directory — ignore generated content, track state/findings/src
   .aegis/
-  ```
-
-Report what was done.
-
-## Step 7: Update .qwenignore
-
-Check if `.qwenignore` exists in the target repository:
-- If YES: check if it contains `.aegis/` rules
-  - If already present with proper negation patterns: do nothing
-  - If present but missing negation patterns: warn user and offer to update
-- If NO .qwenignore: create one with:
-  ```
-  # AEGIS audit directory rules
-  # Ignore everything in .aegis/ by default
-  .aegis/
-
-  # EXCEPT these critical state/finding files (needed for context)
   !.aegis/STATE.md
   !.aegis/MANIFEST.md
   !.aegis/findings/
+  !.aegis/src/
   ```
 
 Explain to user:
-- `.gitignore` keeps `.aegis/` out of git (no repo bloat)
-- `.qwenignore` with negation patterns makes STATE.md, MANIFEST.md, and findings/ visible to Qwen's context
-- This is the recommended configuration for optimal AEGIS operation
+- `.gitignore` uses negation patterns to track critical files (STATE.md, MANIFEST.md, findings/, src/)
+- This keeps generated content out of git while tracking framework files and state
+- No `.qwenignore` needed — `.gitignore` negation handles context visibility
 
 Report what was done.
 
-## Step 8: Display Summary
+## Step 7: Display Summary
 
 ```
 ════════════════════════════════════════
@@ -232,8 +217,9 @@ State:     .aegis/STATE.md
 Manifest:  .aegis/MANIFEST.md
 Tools:     {X}/8 detected
 
-.aegis/ added to .gitignore ✓
-.aegis/ context rules added to .qwenignore ✓
+.gitignore configured with negation patterns ✓
+  Tracked: STATE.md, MANIFEST.md, findings/, src/
+  Ignored: all other .aegis/ content
 
 ────────────────────────────────────────
 Next steps:
@@ -250,7 +236,6 @@ Next steps:
 - [ ] AEGIS framework files copied from global extension to .aegis/src/
 - [ ] .aegis/ directory created with STATE.md, MANIFEST.md, findings/
 - [ ] Tool inventory detected and recorded in MANIFEST.md
-- [ ] .aegis/ added to .gitignore
-- [ ] .qwenignore created with context visibility rules (negation patterns for STATE.md, MANIFEST.md, findings/)
+- [ ] .gitignore configured with negation patterns (STATE.md, MANIFEST.md, findings/, src/ tracked)
 - [ ] User informed of next steps
 </success_criteria>

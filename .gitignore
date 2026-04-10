@@ -2,5 +2,9 @@ node_modules/
 *.log
 .DS_Store
 
-# AEGIS audit state (generated)
+# AEGIS audit directory — ignore generated content, track state/findings/src
 .aegis/
+!.aegis/STATE.md
+!.aegis/MANIFEST.md
+!.aegis/findings/
+!.aegis/src/
