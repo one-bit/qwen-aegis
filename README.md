@@ -34,25 +34,25 @@ All framework specifications, agent personas, workflow definitions, domain knowl
 ## Quick Start
 
 ```
-/aegis:init       # Initialize AEGIS in your project
-/aegis:audit      # Start the diagnostic audit
-/aegis:validate   # Verify framework integrity
+/aegis.init       # Initialize AEGIS in your project
+/aegis.audit      # Start the diagnostic audit
+/aegis.validate   # Verify framework integrity
 ```
 
 ## Slash Commands
 
 | Command | Purpose |
 |---------|---------|
-| `/aegis:init` | Initialize AEGIS in a target project — creates `.aegis/` directory with state tracking |
-| `/aegis:audit` | Start a full or targeted diagnostic audit — guides scope, domain, and tool selection |
-| `/aegis:resume` | Resume an interrupted audit from the last checkpoint |
-| `/aegis:status` | Display current audit state, phase progress, finding counts, and next action |
-| `/aegis:report` | Generate or view the final audit report (requires all phases 0–4 complete) |
-| `/aegis:validate` | Verify tool installation and framework integrity — read-only, safe to run anytime |
-| `/aegis:transform` | Initiate the full remediation pipeline (Phases 6–8) on a completed audit |
-| `/aegis:remediate` | Generate remediation playbooks for all findings or a specific domain |
-| `/aegis:playbook` | Generate a remediation playbook for a single specific finding |
-| `/aegis:guardrails` | Generate project rules for AI coding assistants (CLAUDE.md, .cursorrules, QWEN.md) |
+| `/aegis.init` | Initialize AEGIS in a target project — creates `.aegis/` directory with state tracking |
+| `/aegis.audit` | Start a full or targeted diagnostic audit — guides scope, domain, and tool selection |
+| `/aegis.resume` | Resume an interrupted audit from the last checkpoint |
+| `/aegis.status` | Display current audit state, phase progress, finding counts, and next action |
+| `/aegis.report` | Generate or view the final audit report (requires all phases 0–4 complete) |
+| `/aegis.validate` | Verify tool installation and framework integrity — read-only, safe to run anytime |
+| `/aegis.transform` | Initiate the full remediation pipeline (Phases 6–8) on a completed audit |
+| `/aegis.remediate` | Generate remediation playbooks for all findings or a specific domain |
+| `/aegis.playbook` | Generate a remediation playbook for a single specific finding |
+| `/aegis.guardrails` | Generate project rules for AI coding assistants (CLAUDE.md, .cursorrules, QWEN.md) |
 
 ## Architecture
 
@@ -205,7 +205,7 @@ This extension was adapted from the original AEGIS Claude Code extension with th
 | Separate agent manifests + persona files | Combined into single Qwen subagent `.md` with YAML frontmatter |
 | `~/.claude/` framework directory | `${extensionPath}/src/` within the extension |
 
-Additionally, the `/aegis:guardrails` command was extended to support Qwen Code's `.qwen/QWEN.md` format alongside Claude's `CLAUDE.md` and Cursor's `.cursorrules`.
+Additionally, the `/aegis.guardrails` command was extended to support Qwen Code's `.qwen/QWEN.md` format alongside Claude's `CLAUDE.md` and Cursor's `.cursorrules`.
 
 ## Core Principles
 

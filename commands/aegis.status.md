@@ -9,7 +9,7 @@ Displays the current state of an AEGIS diagnostic audit without modifying anythi
 
 This is a read-only command — it never modifies .aegis/ state or audit artifacts.
 
-If no active audit exists, reports that and suggests /aegis:audit.
+If no active audit exists, reports that and suggests /aegis.audit.
 </objective>
 
 <execution_context>
@@ -34,7 +34,7 @@ Check if .aegis/STATE.md exists:
 
   No .aegis/ directory found in the current repository.
 
-  To start an audit, run: /aegis:audit
+  To start an audit, run: /aegis.audit
   ════════════════════════════════════════
   ```
   Exit.
@@ -120,11 +120,11 @@ Based on the current state, suggest exactly one next action:
 
 | State | Suggestion |
 |-------|------------|
-| All phases complete, no report | "Run /aegis:report to generate the final audit report." |
-| All phases complete, report exists | "Core audit complete. Run /aegis:transform to start the remediation pipeline." |
-| A phase is active (in progress) | "Resume with /aegis:resume to continue Phase [N]." |
-| A phase is pending (next in sequence) | "Resume with /aegis:resume to start Phase [N]." |
-| Audit paused | "Resume with /aegis:resume to continue from [last action]." |
+| All phases complete, no report | "Run /aegis.report to generate the final audit report." |
+| All phases complete, report exists | "Core audit complete. Run /aegis.transform to start the remediation pipeline." |
+| A phase is active (in progress) | "Resume with /aegis.resume to continue Phase [N]." |
+| A phase is pending (next in sequence) | "Resume with /aegis.resume to start Phase [N]." |
+| Audit paused | "Resume with /aegis.resume to continue from [last action]." |
 
 ```
 ────────────────────────────────────────

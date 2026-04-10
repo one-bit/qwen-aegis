@@ -1,7 +1,7 @@
 description = "Display current AEGIS audit state and progress"
 
 prompt = """
-You are executing the `/aegis:status` command — Display current AEGIS audit state and progress.
+You are executing the `/aegis.status` command — Display current AEGIS audit state and progress.
 
 This is a READ-ONLY command. Do NOT modify any files.
 
@@ -17,7 +17,7 @@ Check if `.aegis/STATE.md` exists:
 
   No .aegis/ directory found in the current repository.
 
-  To start an audit, run: /aegis:audit
+  To start an audit, run: /aegis.audit
   ════════════════════════════════════════
   ```
   Exit.
@@ -52,12 +52,12 @@ Based on the current state, suggest exactly one next action:
 
 | State | Suggestion |
 |-------|------------|
-| All phases complete, no report | "Run /aegis:report to generate the final audit report." |
-| All phases complete, report exists | "Core audit complete. Run /aegis:transform to start the remediation pipeline." |
-| A phase is active (in progress) | "Resume with /aegis:resume to continue Phase [N]." |
-| A phase is pending (next in sequence) | "Resume with /aegis:resume to start Phase [N]." |
-| Audit paused | "Resume with /aegis:resume to continue from [last action]." |
-| No active audit | "Run /aegis:audit to begin diagnostic audit." |
+| All phases complete, no report | "Run /aegis.report to generate the final audit report." |
+| All phases complete, report exists | "Core audit complete. Run /aegis.transform to start the remediation pipeline." |
+| A phase is active (in progress) | "Resume with /aegis.resume to continue Phase [N]." |
+| A phase is pending (next in sequence) | "Resume with /aegis.resume to start Phase [N]." |
+| Audit paused | "Resume with /aegis.resume to continue from [last action]." |
+| No active audit | "Run /aegis.audit to begin diagnostic audit." |
 
 Display in the formatted NEXT ACTION block.
 

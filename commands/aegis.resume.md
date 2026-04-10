@@ -8,7 +8,7 @@ tools: [read_file, write_file, edit, run_shell_command, glob, grep_search, agent
 <objective>
 Resumes an interrupted AEGIS diagnostic audit from the last checkpoint or a specified phase. read_files .aegis/STATE.md to determine current position, displays progress, and routes to the appropriate phase workflow.
 
-If no active audit exists, routes to /aegis:audit to start a new one.
+If no active audit exists, routes to /aegis.audit to start a new one.
 
 Produces: continued audit execution from the resume point, updated .aegis/STATE.md.
 </objective>
@@ -40,9 +40,9 @@ Check if .aegis/STATE.md exists:
   NO ACTIVE AUDIT
   ════════════════════════════════════════
 
-  No .aegis/ directory found. Start a new audit with /aegis:audit.
+  No .aegis/ directory found. Start a new audit with /aegis.audit.
 
-  [1] Start new audit → runs /aegis:audit
+  [1] Start new audit → runs /aegis.audit
   [2] Cancel
   ════════════════════════════════════════
   ```
@@ -75,10 +75,10 @@ AUDIT COMPLETE
 
 This audit has already completed all phases.
 
-[1] View status → runs /aegis:status
-[2] Generate report → runs /aegis:report
-[3] Start Transform pipeline → runs /aegis:transform
-[4] Start fresh audit (WARNING: deletes current state) → runs /aegis:audit
+[1] View status → runs /aegis.status
+[2] Generate report → runs /aegis.report
+[3] Start Transform pipeline → runs /aegis.transform
+[4] Start fresh audit (WARNING: deletes current state) → runs /aegis.audit
 [5] Cancel
 ════════════════════════════════════════
 ```
@@ -145,7 +145,7 @@ If [2]: confirm re-run (warns that existing phase output will be overwritten), t
 
 If [3]: validate phase number, warn if skipping phases (findings may be incomplete), then delegate
 
-If [4]: require explicit confirmation ("type DELETE to confirm"), then delegate to /aegis:audit
+If [4]: require explicit confirmation ("type DELETE to confirm"), then delegate to /aegis.audit
 
 If [5]: exit
 

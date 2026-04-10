@@ -42,7 +42,7 @@ Check if .aegis/report/ exists with completed Core audit:
 
   Remediation requires a completed Layer A record (all Core phases 0-5).
 
-  [1] Resume audit → runs /aegis:resume
+  [1] Resume audit → runs /aegis.resume
   [2] Cancel
   ════════════════════════════════════════
   ```

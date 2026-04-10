@@ -114,12 +114,12 @@ When two agents reach conflicting conclusions about overlapping concerns:
 ## Execution Flow
 
 1. Check for existing `.aegis/STATE.md` — resume or start fresh
-2. If no `.aegis/` exists, run `/aegis:init` first
+2. If no `.aegis/` exists, run `/aegis.init` first
 3. For each phase in scope:
    - Execute the phase workflow
    - Run the phase checkpoint
    - Ask user: Continue, Pause, or Abort
-4. After all phases: generate report with `/aegis:report`
+4. After all phases: generate report with `/aegis.report`
 
 ## Available Subagents
 

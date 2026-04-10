@@ -115,8 +115,8 @@ If completed_phase == 5 (Core audit complete):
    Disagreements resolved: [N] of [N]
 
    Next steps:
-   - /aegis:report — generate the final audit report
-   - /aegis:transform — start the remediation pipeline
+   - /aegis.report — generate the final audit report
+   - /aegis.transform — start the remediation pipeline
    ────────────────────────────────────────
    ```
 </step>
@@ -144,7 +144,7 @@ Handle each response:
   - Overall status: paused
   - Resume Info:
     - Last action: "Phase [N] checkpoint — user chose pause"
-    - Next action: "Resume with /aegis:resume to start Phase [N+1]"
+    - Next action: "Resume with /aegis.resume to start Phase [N+1]"
 - Display:
   ```
   ════════════════════════════════════════
@@ -155,10 +155,10 @@ Handle each response:
   [N] findings preserved across [N] phases.
 
   To continue later:
-    /aegis:resume
+    /aegis.resume
 
   To check status anytime:
-    /aegis:status
+    /aegis.status
   ════════════════════════════════════════
   ```
 - Stop execution (do not proceed to next phase)
@@ -168,7 +168,7 @@ Handle each response:
   - Overall status: paused
   - Resume Info:
     - Last action: "Phase [N] checkpoint — user chose abort"
-    - Next action: "Resume with /aegis:resume or start fresh with /aegis:audit"
+    - Next action: "Resume with /aegis.resume or start fresh with /aegis.audit"
 - Display:
   ```
   ════════════════════════════════════════
@@ -179,8 +179,8 @@ Handle each response:
   Completed phases: 0 through [N]
   Findings: [count] total
 
-  To resume later:  /aegis:resume
-  To start fresh:   /aegis:audit (will offer to archive existing state)
+  To resume later:  /aegis.resume
+  To start fresh:   /aegis.audit (will offer to archive existing state)
   ════════════════════════════════════════
   ```
 - Stop execution
@@ -215,7 +215,7 @@ Regardless of user choice, update .aegis/STATE.md:
 </output>
 
 <error_handling>
-- **STATE.md missing or unreadable:** Display error "Cannot read .aegis/STATE.md — audit state may be corrupted. Run /aegis:status to diagnose." Do not proceed.
+- **STATE.md missing or unreadable:** Display error "Cannot read .aegis/STATE.md — audit state may be corrupted. Run /aegis.status to diagnose." Do not proceed.
 - **Phase not actually complete:** If STATE.md shows phase still active (agents remaining), do not display checkpoint. Warn: "Phase [N] has [X] agents remaining. Complete the phase before checkpointing."
 - **Session Tracking section missing:** If STATE.md was created before Phase 12 updates (no Session Tracking section), add it now with Sessions: 1, Last session: current timestamp, Started: current timestamp.
 - **Checkpoint History section missing:** If missing, create it with the current checkpoint as the first entry.

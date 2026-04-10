@@ -66,22 +66,22 @@ AEGIS **never auto-executes code**. It proposes; humans approve and execute.
 
 | Command | Purpose |
 |---------|---------|
-| `/aegis:init` | Initialize AEGIS in a target project |
-| `/aegis:audit` | Start a full or targeted diagnostic audit |
-| `/aegis:resume` | Resume an interrupted audit |
-| `/aegis:status` | Display current audit state and progress |
-| `/aegis:report` | Generate or view the final audit report |
-| `/aegis:validate` | Verify tool installation and framework integrity |
-| `/aegis:transform` | Initiate the full remediation pipeline (Phases 6-8) |
-| `/aegis:remediate` | Generate remediation playbooks for findings |
-| `/aegis:playbook` | Generate a playbook for a single finding |
-| `/aegis:guardrails` | Generate project rules for AI coding assistants |
+| `/aegis.init` | Initialize AEGIS in a target project |
+| `/aegis.audit` | Start a full or targeted diagnostic audit |
+| `/aegis.resume` | Resume an interrupted audit |
+| `/aegis.status` | Display current audit state and progress |
+| `/aegis.report` | Generate or view the final audit report |
+| `/aegis.validate` | Verify tool installation and framework integrity |
+| `/aegis.transform` | Initiate the full remediation pipeline (Phases 6-8) |
+| `/aegis.remediate` | Generate remediation playbooks for findings |
+| `/aegis.playbook` | Generate a playbook for a single finding |
+| `/aegis.guardrails` | Generate project rules for AI coding assistants |
 
 ## Quick Start
 
 ```
-/aegis:init          # Set up the project
-/aegis:audit         # Start the diagnostic audit
+/aegis.init          # Set up the project
+/aegis.audit         # Start the diagnostic audit
 ```
 
 The audit creates `.aegis/` directory with state tracking, findings, and reports.

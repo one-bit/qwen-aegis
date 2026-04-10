@@ -39,7 +39,7 @@ ${arguments}
 
   Guardrail generation requires a completed Core audit.
 
-  [1] Resume audit → runs /aegis:resume
+  [1] Resume audit → runs /aegis.resume
   [2] Cancel
   ════════════════════════════════════════
   ```
@@ -55,7 +55,7 @@ ${arguments}
   Guardrails derive from remediation knowledge (Layer B).
   Remediation playbooks must be generated first.
 
-  [1] Generate remediation first → runs /aegis:remediate
+  [1] Generate remediation first → runs /aegis.remediate
   [2] Cancel
   ════════════════════════════════════════
   ```
@@ -176,8 +176,8 @@ To apply guardrails to your project:
   - Customize rules for your project's specific needs
 
 Next steps:
-  - Run full Transform pipeline: /aegis:transform
-  - Generate execution plan: continue with Phase 8 via /aegis:transform
+  - Run full Transform pipeline: /aegis.transform
+  - Generate execution plan: continue with Phase 8 via /aegis.transform
 
 ════════════════════════════════════════
 ```

@@ -7,7 +7,7 @@ tools: [read_file, write_file, edit, run_shell_command, glob, grep_search, agent
 <objective>
 Initiates the full AEGIS Transform pipeline (Phases 6-8) on a completed Core audit. Guides the user through scope selection, displays intervention level distribution and confidence information, and requires explicit confirmation before producing any Transform output.
 
-This is the master entry point for all Transform operations. For targeted operations, use /aegis:remediate, /aegis:playbook, or /aegis:guardrails instead.
+This is the master entry point for all Transform operations. For targeted operations, use /aegis.remediate, /aegis.playbook, or /aegis.guardrails instead.
 
 Produces: Layer B remediation knowledge (playbooks, patterns, guardrails) and Layer C execution plans (change graph, risk scores, PAUL project).
 </objective>
@@ -40,7 +40,7 @@ Check if .aegis/report/ exists with completed Core audit:
   No .aegis/ directory found. A completed Core audit is required
   before Transform can run.
 
-  [1] Start new audit → runs /aegis:audit
+  [1] Start new audit → runs /aegis.audit
   [2] Cancel
   ════════════════════════════════════════
   ```
@@ -61,7 +61,7 @@ Check if .aegis/report/ exists with completed Core audit:
     Phase 4 (Adversarial Review): [status]
     Phase 5 (Report): [status]
 
-  [1] Resume audit to complete remaining phases → runs /aegis:resume
+  [1] Resume audit to complete remaining phases → runs /aegis.resume
   [2] Cancel
   ════════════════════════════════════════
   ```

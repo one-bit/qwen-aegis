@@ -35,9 +35,9 @@ Check if .aegis/STATE.md exists:
   NO ACTIVE AUDIT
   ════════════════════════════════════════
 
-  No .aegis/ directory found. Start an audit first with /aegis:audit.
+  No .aegis/ directory found. Start an audit first with /aegis.audit.
 
-  [1] Start new audit → runs /aegis:audit
+  [1] Start new audit → runs /aegis.audit
   [2] Cancel
   ════════════════════════════════════════
   ```
@@ -67,7 +67,7 @@ Current progress:
 
 Incomplete phases: [list]
 
-[1] Resume audit to complete remaining phases → runs /aegis:resume
+[1] Resume audit to complete remaining phases → runs /aegis.resume
 [2] Cancel
 ════════════════════════════════════════
 ```
@@ -154,7 +154,7 @@ Files:
 
 Next steps:
   - Review the report in .aegis/report/
-  - Run /aegis:transform to generate remediation plans (Layer B)
+  - Run /aegis.transform to generate remediation plans (Layer B)
   - Archive the audit when satisfied
 
 ════════════════════════════════════════

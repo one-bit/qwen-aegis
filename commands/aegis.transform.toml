@@ -1,7 +1,7 @@
 description = "Initiate the full AEGIS Transform pipeline on a completed audit"
 
 prompt = """
-You are executing the `/aegis:transform` command — Initiate the full AEGIS Transform pipeline (Phases 6-8) on a completed audit.
+You are executing the `/aegis.transform` command — Initiate the full AEGIS Transform pipeline (Phases 6-8) on a completed audit.
 
 ## Step 1: Check Prerequisites
 
@@ -9,7 +9,7 @@ Verify Core audit is complete:
 - Read `.aegis/STATE.md`
 - Verify phases 0-5 all show "complete"
 - Verify `.aegis/report/` exists
-- If incomplete: "Transform requires a completed Core audit (phases 0-5). Current status: [show status]. Resume with /aegis:resume." Exit.
+- If incomplete: "Transform requires a completed Core audit (phases 0-5). Current status: [show status]. Resume with /aegis.resume." Exit.
 
 ## Step 2: Analyze Transform Scope
 

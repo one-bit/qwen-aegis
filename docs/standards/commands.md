@@ -31,7 +31,7 @@ src/transform/commands/ (Transform remediation commands)
 - `remediate.md`
 - `guardrails.md`
 
-Commands are invoked by users as `aegis:{kebab-name}` (e.g., `/aegis:audit`).
+Commands are invoked by users as `aegis:{kebab-name}` (e.g., `/aegis.audit`).
 
 ## Required Structure
 
@@ -70,7 +70,7 @@ argument-hint: "[optional-arg]"
 | References | Core Workflows (`src/core/workflows/`) | By path in `<execution_context>` |
 | References | Transform Workflows (`src/transform/workflows/`) | By path in `<execution_context>` |
 | References | `.aegis/` state files | For prerequisite checking and state display |
-| Referenced BY | Users | Slash command invocation (e.g., `/aegis:audit`, `/aegis:transform`) |
+| Referenced BY | Users | Slash command invocation (e.g., `/aegis.audit`, `/aegis.transform`) |
 
 Commands are the **entry points** of the dependency graph. Users invoke commands; commands invoke workflows; workflows invoke agents.
 
@@ -200,17 +200,17 @@ Transform commands are entry points to the remediation pipeline. They follow the
 
 | Command | Invocation | Purpose |
 |---------|-----------|---------|
-| Transform | `/aegis:transform` | Initiate Transform pipeline on a completed audit |
-| Playbook | `/aegis:playbook {finding-id}` | Generate remediation playbook for a specific finding |
-| Remediate | `/aegis:remediate` | Generate full remediation plan (all findings) |
-| Guardrails | `/aegis:guardrails` | Generate project rules from audit findings |
+| Transform | `/aegis.transform` | Initiate Transform pipeline on a completed audit |
+| Playbook | `/aegis.playbook {finding-id}` | Generate remediation playbook for a specific finding |
+| Remediate | `/aegis.remediate` | Generate full remediation plan (all findings) |
+| Guardrails | `/aegis.guardrails` | Generate project rules from audit findings |
 
 **Safety requirement:** All Transform commands must display intervention level and confidence information before proceeding with any output generation. The user must confirm before Transform produces output at Planning level or above.
 
 **Example Transform command flow:**
 
 ```
-/aegis:transform
+/aegis.transform
 
 [1] Check prerequisites:
     - Verify completed Core audit (.aegis/report/ exists)

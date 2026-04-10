@@ -1,7 +1,7 @@
 description = "Initialize AEGIS in a target project"
 
 prompt = """
-You are executing the `/aegis:init` command — Initialize AEGIS in a target project.
+You are executing the `/aegis.init` command — Initialize AEGIS in a target project.
 
 Follow the complete process defined in the AEGIS framework. Your task:
 
@@ -32,12 +32,12 @@ Check if `.aegis/STATE.md` exists in the target repository:
   Current Phase: [from STATE.md]
   Initialized: [from STATE.md timestamp]
 
-  [1] Resume existing audit → /aegis:resume
+  [1] Resume existing audit → /aegis.resume
   [2] Fresh start (archives current .aegis/ to .aegis-backup-{YYYYMMDD-HHMMSS}/)
   [3] Cancel
   ════════════════════════════════════════
   ```
-  - If [1]: inform user to run `/aegis:resume` and exit
+  - If [1]: inform user to run `/aegis.resume` and exit
   - If [2]: rename `.aegis/` to `.aegis-backup-{timestamp}/`, then proceed to Step 3
   - If [3]: exit
 
@@ -60,7 +60,7 @@ Create `.aegis/STATE.md` with the standard audit state template including:
 - Status: initialized, current phase: none
 - All 6 phases listed as pending
 - Tool Configuration section
-- Resume Info: Last action: Project initialized, Next action: Run /aegis:audit
+- Resume Info: Last action: Project initialized, Next action: Run /aegis.audit
 - Session Tracking: Sessions: 0
 - Checkpoint History placeholder
 
@@ -77,7 +77,7 @@ Create `.aegis/MANIFEST.md` with:
   - Syft (command -v)
   - Grype (command -v)
   - Git (command -v git)
-- Notes section referencing /aegis:validate
+- Notes section referencing /aegis.validate
 
 ## Step 6: Update .gitignore
 
@@ -105,8 +105,8 @@ Tools:     {X}/8 detected
 
 ────────────────────────────────────────
 Next steps:
-  /aegis:validate  — verify tool installation
-  /aegis:audit     — begin diagnostic audit
+  /aegis.validate  — verify tool installation
+  /aegis.audit     — begin diagnostic audit
 ════════════════════════════════════════
 ```
 

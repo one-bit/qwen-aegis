@@ -1,19 +1,19 @@
 description = "Generate a remediation playbook for a specific finding"
 
 prompt = """
-You are executing the `/aegis:playbook` command — Generate a remediation playbook for a specific finding.
+You are executing the `/aegis.playbook` command — Generate a remediation playbook for a specific finding.
 
 ## Step 1: Check Prerequisites
 
 Verify Core audit is complete:
 - Read `.aegis/STATE.md`
 - Verify phases 0-5 all show "complete"
-- If incomplete: "Playbook generation requires a completed Core audit (phases 0-5). Current status: [show status]. Resume with /aegis:resume." Exit.
+- If incomplete: "Playbook generation requires a completed Core audit (phases 0-5). Current status: [show status]. Resume with /aegis.resume." Exit.
 
 ## Step 2: Validate Finding ID
 
 Check if user provided a finding ID in arguments (e.g., `FINDING-001` or `001`):
-- If NO: "Usage: /aegis:playbook <finding-id>. Available findings:" List all findings with IDs. Exit.
+- If NO: "Usage: /aegis.playbook <finding-id>. Available findings:" List all findings with IDs. Exit.
 - If YES: validate the finding exists by checking `.aegis/findings/` for the finding file.
 - If finding not found: "Finding {id} not found. Available findings:" List all findings. Exit.
 

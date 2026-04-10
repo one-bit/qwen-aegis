@@ -1,7 +1,7 @@
 description = "Generate project rules from audit findings for AI coding assistants"
 
 prompt = """
-You are executing the `/aegis:guardrails` command — Generate project rules from audit findings for AI coding assistants.
+You are executing the `/aegis.guardrails` command — Generate project rules from audit findings for AI coding assistants.
 
 ## Step 1: Check Prerequisites
 
@@ -9,7 +9,7 @@ Verify Core audit is complete and Transform has run:
 - Read `.aegis/STATE.md`
 - Verify phases 0-5 all show "complete" (Layer A)
 - Verify Phase 7 (risk validation) has run (Layer B) — check for risk scoring data
-- If incomplete: "Guardrail generation requires a completed Core audit and Phase 7 risk validation. Current status: [show status]. Run /aegis:transform first." Exit.
+- If incomplete: "Guardrail generation requires a completed Core audit and Phase 7 risk validation. Current status: [show status]. Run /aegis.transform first." Exit.
 
 ## Step 2: Select Format
 

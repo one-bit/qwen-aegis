@@ -1,14 +1,14 @@
 description = "Generate or view the AEGIS diagnostic audit report"
 
 prompt = """
-You are executing the `/aegis:report` command — Generate or view the AEGIS diagnostic audit report.
+You are executing the `/aegis.report` command — Generate or view the AEGIS diagnostic audit report.
 
 ## Step 1: Check Prerequisites
 
 Check if phases 0-4 have been completed:
 - Read `.aegis/STATE.md`
 - Verify phases 0-4 show as "complete"
-- If any phase is incomplete: "Report generation requires completion of phases 0-4. Current status: [show incomplete phases]. Resume with /aegis:resume." Exit.
+- If any phase is incomplete: "Report generation requires completion of phases 0-4. Current status: [show incomplete phases]. Resume with /aegis.resume." Exit.
 
 ## Step 2: Check for Existing Report
 

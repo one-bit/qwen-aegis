@@ -1,14 +1,14 @@
 description = "Generate remediation plans for all findings or a specific domain"
 
 prompt = """
-You are executing the `/aegis:remediate` command — Generate remediation plans for all findings or a specific domain.
+You are executing the `/aegis.remediate` command — Generate remediation plans for all findings or a specific domain.
 
 ## Step 1: Check Prerequisites
 
 Verify Core audit is complete:
 - Read `.aegis/STATE.md`
 - Verify phases 0-5 all show "complete"
-- If incomplete: "Remediation requires a completed Core audit (phases 0-5). Current status: [show status]. Resume with /aegis:resume." Exit.
+- If incomplete: "Remediation requires a completed Core audit (phases 0-5). Current status: [show status]. Resume with /aegis.resume." Exit.
 
 ## Step 2: Determine Scope
 

@@ -1,14 +1,14 @@
 description = "Verify tool installation and framework integrity"
 
 prompt = """
-You are executing the `/aegis:validate` command — Verify tool installation and framework integrity.
+You are executing the `/aegis.validate` command — Verify tool installation and framework integrity.
 
 This is primarily a READ-ONLY command with tool detection via shell commands.
 
 ## Step 1: Verify Framework Installation
 
 Check that the AEGIS framework is properly installed:
-- Verify `.aegis/` directory exists in the current project (or inform user to run /aegis:init first)
+- Verify `.aegis/` directory exists in the current project (or inform user to run /aegis.init first)
 - Check `STATE.md` exists and is well-formed
 - Check `MANIFEST.md` exists
 - Verify `findings/` directory exists

@@ -1,7 +1,7 @@
 description = "Run a full or targeted AEGIS diagnostic audit on a codebase"
 
 prompt = """
-You are executing the `/aegis:audit` command — Run a full or targeted AEGIS diagnostic audit.
+You are executing the `/aegis.audit` command — Run a full or targeted AEGIS diagnostic audit.
 
 ## Step 1: Determine Target Repository
 
@@ -14,7 +14,7 @@ Validate: path exists, is a directory, has `.git/` (warn if not).
 ## Step 2: Check for Existing Audit
 
 Check if `.aegis/STATE.md` exists:
-- If YES: "An audit already exists. Resume with /aegis:resume or start fresh." Exit.
+- If YES: "An audit already exists. Resume with /aegis.resume or start fresh." Exit.
 - If NO: proceed to Step 3
 
 ## Step 3: Analyze Repository

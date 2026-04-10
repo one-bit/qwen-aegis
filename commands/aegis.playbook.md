@@ -39,7 +39,7 @@ Check if .aegis/report/ exists with completed Core audit:
 
   Playbook generation requires a completed Layer A record.
 
-  [1] Resume audit → runs /aegis:resume
+  [1] Resume audit → runs /aegis.resume
   [2] Cancel
   ════════════════════════════════════════
   ```
@@ -56,11 +56,11 @@ Check ${arguments} for a finding ID:
   FINDING ID REQUIRED
   ════════════════════════════════════════
 
-  Usage: /aegis:playbook <finding-id>
+  Usage: /aegis.playbook <finding-id>
 
-  Example: /aegis:playbook F-04-001
+  Example: /aegis.playbook F-04-001
 
-  To see all findings, run /aegis:status.
+  To see all findings, run /aegis.status.
 
   [1] List all finding IDs
   [2] Cancel
@@ -154,9 +154,9 @@ Intervention level: [level]
 
 Next steps:
   - Review the playbook
-  - Generate more playbooks: /aegis:playbook <finding-id>
-  - Generate all playbooks: /aegis:remediate
-  - Generate guardrails: /aegis:guardrails
+  - Generate more playbooks: /aegis.playbook <finding-id>
+  - Generate all playbooks: /aegis.remediate
+  - Generate guardrails: /aegis.guardrails
 
 ════════════════════════════════════════
 ```

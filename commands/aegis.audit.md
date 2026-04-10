@@ -8,10 +8,10 @@ tools: [read_file, write_file, edit, run_shell_command, glob, grep_search, agent
 <objective>
 Initiates a new AEGIS diagnostic audit on a target codebase. This is the primary entry point for all Core audit operations. Guides the user through scope selection, domain targeting, tool configuration, and confirmation before delegating to the Phase 0 workflow.
 
-If no `.aegis/` directory exists, delegates project initialization to `/aegis:init` before proceeding.
-If an existing audit is detected, routes to `/aegis:resume` instead of starting fresh.
+If no `.aegis/` directory exists, delegates project initialization to `/aegis.init` before proceeding.
+If an existing audit is detected, routes to `/aegis.resume` instead of starting fresh.
 
-Produces: Phase 0 (Context & Threat Modeling) output, building on the `.aegis/` structure created by `/aegis:init`.
+Produces: Phase 0 (Context & Threat Modeling) output, building on the `.aegis/` structure created by `/aegis.init`.
 </objective>
 
 <execution_context>
@@ -63,17 +63,17 @@ Check if `.aegis/STATE.md` exists in the target repository:
     Status: [from STATE.md]
     Findings so far: [count]
 
-    [1] Resume existing audit (recommended) → runs /aegis:resume
+    [1] Resume existing audit (recommended) → runs /aegis.resume
     [2] Start fresh (WARNING: archives existing .aegis/ state)
     [3] Cancel
     ════════════════════════════════════════
     ```
-    - If [1]: delegate to /aegis:resume
-    - If [2]: run /aegis:init logic (archives old .aegis/, creates fresh), then proceed to Step 3
+    - If [1]: delegate to /aegis.resume
+    - If [2]: run /aegis.init logic (archives old .aegis/, creates fresh), then proceed to Step 3
     - If [3]: exit
 
 - If NO (no .aegis/ directory): Project not yet initialized.
-  - Run /aegis:init process to create .aegis/ with STATE.md, MANIFEST.md, and findings/
+  - Run /aegis.init process to create .aegis/ with STATE.md, MANIFEST.md, and findings/
   - The init process handles: git repo validation, tool detection, .gitignore update
   - After init completes, proceed to Step 3
 
@@ -183,7 +183,7 @@ If [1] selected:
 3. Update .aegis/STATE.md Session Tracking: set Started to current timestamp, Sessions to 1, Last session to current timestamp
 4. Begin the phase execution loop (Step 7)
 
-Note: .aegis/ directory, STATE.md, and MANIFEST.md were created by /aegis:init in Step 2.
+Note: .aegis/ directory, STATE.md, and MANIFEST.md were created by /aegis.init in Step 2.
 
 If [2]: return to Step 4
 If [3]: exit without creating any files
@@ -216,7 +216,7 @@ For each phase in the audit scope (full: 0-5, quick: 0-2):
   4. If user paused or aborted: display resume instructions and stop execution
 ```
 
-The final checkpoint (after Phase 5 or last phase in scope) displays "Core audit complete" with next steps (/aegis:report, /aegis:transform) instead of continue/pause/abort options.
+The final checkpoint (after Phase 5 or last phase in scope) displays "Core audit complete" with next steps (/aegis.report, /aegis.transform) instead of continue/pause/abort options.
 
 Note: Each phase workflow internally handles session-handoff between agents. The checkpoint workflow operates at the phase boundary level, not the agent boundary level.
 

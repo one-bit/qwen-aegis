@@ -10,7 +10,7 @@ Initializes AEGIS in a target project by creating the `.aegis/` directory struct
 
 If an existing `.aegis/` is detected, offers resume, fresh start, or cancel.
 
-This command does NOT start an audit — it prepares the project. Run `/aegis:audit` after init to begin.
+This command does NOT start an audit — it prepares the project. Run `/aegis.audit` after init to begin.
 </objective>
 
 <execution_context>
@@ -51,12 +51,12 @@ Check if `.aegis/STATE.md` exists in the target repository:
   Current Phase: [from STATE.md]
   Initialized: [from STATE.md timestamp]
 
-  [1] Resume existing audit → /aegis:resume
+  [1] Resume existing audit → /aegis.resume
   [2] Fresh start (archives current .aegis/ to .aegis-backup-{YYYYMMDD-HHMMSS}/)
   [3] Cancel
   ════════════════════════════════════════
   ```
-  - If [1]: inform user to run `/aegis:resume` and exit
+  - If [1]: inform user to run `/aegis.resume` and exit
   - If [2]: rename `.aegis/` to `.aegis-backup-{timestamp}/`, then proceed to Step 3
   - If [3]: exit
 
@@ -89,7 +89,7 @@ Initialized: {ISO 8601 timestamp}
 ## Status
 
 Overall: initialized
-Current Phase: none (run /aegis:audit to begin)
+Current Phase: none (run /aegis.audit to begin)
 
 ## Phases
 
@@ -104,12 +104,12 @@ Current Phase: none (run /aegis:audit to begin)
 
 ## Tool Configuration
 
-Configured by /aegis:audit at audit start.
+Configured by /aegis.audit at audit start.
 
 ## Resume Info
 
 Last action: Project initialized
-Next action: Run /aegis:audit to begin diagnostic audit
+Next action: Run /aegis.audit to begin diagnostic audit
 
 ## Session Tracking
 
@@ -151,7 +151,7 @@ Initialized: {ISO 8601 timestamp}
 
 ## Notes
 
-Run /aegis:validate for detailed tool verification and troubleshooting.
+Run /aegis.validate for detailed tool verification and troubleshooting.
 ```
 
 To detect each tool:
@@ -190,8 +190,8 @@ Tools:     {X}/8 detected
 
 ────────────────────────────────────────
 Next steps:
-  /aegis:validate  — verify tool installation
-  /aegis:audit     — begin diagnostic audit
+  /aegis.validate  — verify tool installation
+  /aegis.audit     — begin diagnostic audit
 ════════════════════════════════════════
 ```
 

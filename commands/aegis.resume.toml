@@ -1,12 +1,12 @@
 description = "Resume an interrupted AEGIS diagnostic audit"
 
 prompt = """
-You are executing the `/aegis:resume` command — Resume an interrupted AEGIS diagnostic audit.
+You are executing the `/aegis.resume` command — Resume an interrupted AEGIS diagnostic audit.
 
 ## Step 1: Check for Active Audit
 
 Check if `.aegis/STATE.md` exists:
-- If NO: "No active audit found. Run /aegis:audit to begin a new diagnostic audit." Exit.
+- If NO: "No active audit found. Run /aegis.audit to begin a new diagnostic audit." Exit.
 - If YES: proceed to Step 2
 
 ## Step 2: Read Audit State
