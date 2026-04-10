@@ -9,7 +9,7 @@
 ### Install
 
 ```bash
-qwen extensions install https://github.com/YOUR_USERNAME/qwen-aegis
+qwen extensions install https://github.com/one-bit/qwen-aegis
 ```
 
 ---
