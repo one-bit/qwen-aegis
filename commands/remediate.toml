@@ -1,0 +1,50 @@
+description = "Generate remediation plans for all findings or a specific domain"
+
+prompt = """
+You are executing the `/aegis:remediate` command — Generate remediation plans for all findings or a specific domain.
+
+## Step 1: Check Prerequisites
+
+Verify Core audit is complete:
+- Read `.aegis/STATE.md`
+- Verify phases 0-5 all show "complete"
+- If incomplete: "Remediation requires a completed Core audit (phases 0-5). Current status: [show status]. Resume with /aegis:resume." Exit.
+
+## Step 2: Determine Scope
+
+Check if user provided a domain number in arguments:
+- If YES: scope is findings for that specific domain
+- If NO: scope is all findings
+
+Read findings from `.aegis/findings/*/`:
+- Count findings by severity
+- Count findings by domain
+- Identify existing remediation if any in `.aegis/remediation/`
+
+## Step 3: Check Existing Remediation
+
+If remediation already exists for the scope:
+- Display existing remediation
+- Offer to regenerate or update
+- Allow user to proceed or cancel
+
+## Step 4: Confirm and Execute
+
+Display remediation plan scope:
+- Number of findings to remediate
+- Domains affected
+- Estimated output size
+
+```
+[1] Generate remediation plan (recommended)
+[2] Modify scope
+[3] Cancel
+```
+
+If [1]:
+1. Delegate to phase-6-remediation workflow using the agent tool
+2. Generate remediation plans at appropriate intervention levels
+3. Offer to continue with Phase 7 (risk validation) and Phase 8 (execution planning)
+
+Use the available tools (read_file, write_file, edit, run_shell_command, glob, grep_search, agent, ask_user_question) to complete all steps.
+"""

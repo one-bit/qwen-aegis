@@ -1,0 +1,58 @@
+description = "Generate project rules from audit findings for AI coding assistants"
+
+prompt = """
+You are executing the `/aegis:guardrails` command — Generate project rules from audit findings for AI coding assistants.
+
+## Step 1: Check Prerequisites
+
+Verify Core audit is complete and Transform has run:
+- Read `.aegis/STATE.md`
+- Verify phases 0-5 all show "complete" (Layer A)
+- Verify Phase 7 (risk validation) has run (Layer B) — check for risk scoring data
+- If incomplete: "Guardrail generation requires a completed Core audit and Phase 7 risk validation. Current status: [show status]. Run /aegis:transform first." Exit.
+
+## Step 2: Select Format
+
+Check if user provided a format in arguments:
+- If YES: use provided format
+- If NO: present format selection:
+  ```
+  [1] Claude (CLAUDE.md format)
+  [2] Cursor (.cursor/rules format)
+  [3] Qwen (QWEN.md format)
+  [4] Cancel
+  ```
+
+## Step 3: Display Scope
+
+Show what will be included in guardrails:
+- Rules derived from findings (count)
+- Rules derived from risk scoring (count)
+- Target format
+- Output location
+
+## Step 4: Check Existing Guardrails
+
+Check if guardrails already exist in the target location:
+- If YES: Display existing guardrails, offer to regenerate/update
+- If NO: Proceed to Step 5
+
+## Step 5: Confirm and Generate
+
+```
+[1] Generate guardrails (recommended)
+[2] Modify scope
+[3] Cancel
+```
+
+If [1]:
+1. Delegate to phase-7-risk-validation workflow using the agent tool
+2. Generate guardrails in the selected format
+3. Save to appropriate location based on format
+
+## Step 6: Display Completion Summary
+
+Show generated guardrails location and summary of rules included.
+
+Use the available tools (read_file, write_file, glob, grep_search, ask_user_question) to complete all steps. For guardrail generation, use the agent tool to delegate to the risk validation workflow.
+"""

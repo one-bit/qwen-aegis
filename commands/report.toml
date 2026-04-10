@@ -1,0 +1,54 @@
+description = "Generate or view the AEGIS diagnostic audit report"
+
+prompt = """
+You are executing the `/aegis:report` command — Generate or view the AEGIS diagnostic audit report.
+
+## Step 1: Check Prerequisites
+
+Check if phases 0-4 have been completed:
+- Read `.aegis/STATE.md`
+- Verify phases 0-4 show as "complete"
+- If any phase is incomplete: "Report generation requires completion of phases 0-4. Current status: [show incomplete phases]. Resume with /aegis:resume." Exit.
+
+## Step 2: Check for Existing Report
+
+Check if `.aegis/report/` directory exists and contains a report file:
+- If YES: Display existing report content and offer to regenerate
+- If NO: Proceed to Step 3
+
+## Step 3: Generate Report
+
+If user wants to generate/regenerate:
+1. Read all findings from `.aegis/findings/*/`
+2. Read adversarial review from `.aegis/review/` if it exists
+3. Read STATE.md for summary statistics
+4. Delegate to the phase-5-report workflow using the agent tool to synthesize the final report
+
+## Step 4: Display Report Summary
+
+Show:
+- Total findings by severity
+- Top findings summary
+- Disagreement resolution status
+- Recommendations summary
+
+```
+════════════════════════════════════════
+AEGIS AUDIT REPORT
+════════════════════════════════════════
+
+Report generated: [timestamp]
+Target: [repository]
+Total findings: [N]
+
+Top 5 findings (by severity):
+1. [FINDING-XXX] [Severity] — [Title]
+2. ...
+
+────────────────────────────────────────
+Report saved to: .aegis/report/AUDIT-REPORT.md
+════════════════════════════════════════
+```
+
+Use the available tools (read_file, write_file, glob, grep_search) to complete all steps. For report generation delegation, use the agent tool.
+"""

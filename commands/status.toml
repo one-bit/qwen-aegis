@@ -1,0 +1,65 @@
+description = "Display current AEGIS audit state and progress"
+
+prompt = """
+You are executing the `/aegis:status` command — Display current AEGIS audit state and progress.
+
+This is a READ-ONLY command. Do NOT modify any files.
+
+## Step 1: Check for Active Audit
+
+Check if `.aegis/STATE.md` exists:
+
+- If NO:
+  ```
+  ════════════════════════════════════════
+  NO ACTIVE AUDIT
+  ════════════════════════════════════════
+
+  No .aegis/ directory found in the current repository.
+
+  To start an audit, run: /aegis:audit
+  ════════════════════════════════════════
+  ```
+  Exit.
+
+- If YES: proceed to Step 2
+
+## Step 2: Read Audit State
+
+Read `.aegis/STATE.md` and extract all fields:
+- Audit info: target, started, current phase, status
+- Phase progress: per-phase status, agents, finding counts, timestamps
+- Summary: total findings, disagreements (open/resolved), domains covered
+- Resume info: last action, next action
+
+Also check the filesystem for additional context:
+- Count files in `.aegis/findings/*/` for actual finding counts
+- Count files in `.aegis/signals/*/` for signal counts
+- Check `.aegis/report/` existence for report status
+- Check `.aegis/review/` existence for adversarial review status
+
+## Step 3: Display Full Status
+
+Display the complete status table with:
+- Target, Started, Status, AEGIS Version
+- Phase progress table (Phases 0-5) with Status, Agents, Findings, Completed columns
+- Summary: Total findings with severity breakdown (Critical/High/Medium/Low/Info), Disagreements, Domains covered, Sessions completed
+- Estimated remaining work for pending phases only
+
+## Step 4: Suggest Next Action
+
+Based on the current state, suggest exactly one next action:
+
+| State | Suggestion |
+|-------|------------|
+| All phases complete, no report | "Run /aegis:report to generate the final audit report." |
+| All phases complete, report exists | "Core audit complete. Run /aegis:transform to start the remediation pipeline." |
+| A phase is active (in progress) | "Resume with /aegis:resume to continue Phase [N]." |
+| A phase is pending (next in sequence) | "Resume with /aegis:resume to start Phase [N]." |
+| Audit paused | "Resume with /aegis:resume to continue from [last action]." |
+| No active audit | "Run /aegis:audit to begin diagnostic audit." |
+
+Display in the formatted NEXT ACTION block.
+
+Use only read_file, glob, and grep_search tools. Do NOT modify any files.
+"""

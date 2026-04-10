@@ -1,0 +1,54 @@
+description = "Generate a remediation playbook for a specific finding"
+
+prompt = """
+You are executing the `/aegis:playbook` command — Generate a remediation playbook for a specific finding.
+
+## Step 1: Check Prerequisites
+
+Verify Core audit is complete:
+- Read `.aegis/STATE.md`
+- Verify phases 0-5 all show "complete"
+- If incomplete: "Playbook generation requires a completed Core audit (phases 0-5). Current status: [show status]. Resume with /aegis:resume." Exit.
+
+## Step 2: Validate Finding ID
+
+Check if user provided a finding ID in arguments (e.g., `FINDING-001` or `001`):
+- If NO: "Usage: /aegis:playbook <finding-id>. Available findings:" List all findings with IDs. Exit.
+- If YES: validate the finding exists by checking `.aegis/findings/` for the finding file.
+- If finding not found: "Finding {id} not found. Available findings:" List all findings. Exit.
+
+## Step 3: Display Finding Context
+
+Read and display the finding:
+- Finding ID
+- Domain
+- Severity
+- Description
+- Evidence
+- Risk statement
+- Impact/Likelihood
+
+## Step 4: Check Existing Playbook
+
+Check if a playbook already exists for this finding in `.aegis/remediation/` or `.aegis/playbooks/`:
+- If YES: Display existing playbook, offer to regenerate
+- If NO: Proceed to Step 5
+
+## Step 5: Confirm and Generate
+
+```
+[1] Generate playbook (recommended)
+[2] Cancel
+```
+
+If [1]:
+1. Delegate to phase-6-remediation workflow for this single finding using the agent tool
+2. Generate the playbook at the appropriate intervention level
+3. Save to `.aegis/playbooks/{finding-id}-playbook.md`
+
+## Step 6: Display Completion Summary
+
+Show generated playbook summary and location.
+
+Use the available tools (read_file, write_file, glob, grep_search, ask_user_question) to complete all steps. For playbook generation, use the agent tool to delegate to the remediation workflow.
+"""
